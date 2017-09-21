@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <title>Check mail</title>
+
+</head>
+<body>
+<h:form>
+    <h:dataTable border="1" value="#{LoginManagedBean.beanMessage()}" var="data"   >
+        <h:column >
+            <h:selectBooleanCheckbox value="#{data.flag}"/>
+        </h:column>
+          <h:column>
+          <f:facet name="header">
+            <h:outputText value="Sender"/>
+           </f:facet>
+              <h:commandLink id="senderid" action="display.xhtml" actionListener="#{LoginManagedBean.disp(data)}">
+                  <h:outputText value="#{data.from}" />
+           </h:commandLink>
+        </h:column>
+        <h:column >
+          <f:facet name="header">
+            <h:outputText value="Subject"/>
+           </f:facet>
+            <h:outputText value="#{data.subject}" />
+         </h:column>
+          <h:column>
+          <f:facet name="header">
+            <h:outputText value="Date"/>
+           </f:facet>
+              <h:outputText value="#{data.sentdate}" />
+         </h:column>
+      </h:dataTable>
+    <h:commandButton id="remove" action="#{LoginManagedBean.check()}" value="Delete" />
+      <h:commandButton id="back" action="loginf.xhtml" value="Back" />
+      <h:commandButton id="logout"   action ="index.xhtml" actionListener="#{LoginManagedBean.disconnect()}" value="Log Out" />
+
+  </h:form>
+</body>
+</html>

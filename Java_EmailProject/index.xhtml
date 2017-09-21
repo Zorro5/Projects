@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Email Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>     
+    </head>   
+    <body>
+		<h2 align="center">Email Login</h2>
+        <h:form>
+		<table align="center" border="1">
+			<tr><td>Enter your Email ID :</td>
+			<td> <h:inputText id="login" value="#{LoginManagedBean.login}" size="20" required="true"/></td></tr>
+			<tr><td>Enter Password:</td>
+			<td><h:inputSecret id="password" value="#{LoginManagedBean.password}" /></td></tr>
+			<tr><td align="center" colspan="2"><h:commandButton id="submit" action="loginf.xhtml" value="submit" /></td></tr>
+		</table>
+        </h:form>
+    </body>
+</html>
+
+
